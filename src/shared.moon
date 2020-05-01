@@ -14,7 +14,8 @@ modules = {
         'data',
         'money',
         'jobs',
-        'base'
+        'base',
+        'chat'
     }
 }
 
