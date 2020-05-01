@@ -1,9 +1,15 @@
 moon.net = 
     AddNetworkString: (name) ->
         networkString = 'moon.' .. name
-        util.AddNetworkString(networkString) if SERVER
-        return networkString
-
+        util.AddNetworkString networkString
+    Receive: (name, callback) ->
+        networkString = 'moon.' .. name
+        net.Receive networkString, callback
+    Start: (name) ->
+        networkString = 'moon.' .. name
+        net.Start networkString
+    SendToServer: ->
+        net.SendToServer!
     WriteSteamId: do 
         steamIdInformationStart = #'STEAM_' + 1
         (steamId) ->
