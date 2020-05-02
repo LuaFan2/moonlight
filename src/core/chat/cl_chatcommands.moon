@@ -1,14 +1,17 @@
 moon.net.Receive "chat", ->
     col1 = Color net.ReadUInt 8, net.ReadUInt 8, net.ReadUInt 8
-
+    
+    prefixText = net.ReadString!
     player = net.ReadEntity!
     player = IsValid player and player or LocalPlayer!
 
     if not IsValid player
         return
-
-    prefixText = ply:Nick()
-
+    
+    if prefixText == "" or not prefixText
+        prefixText = ply\Nick!
+        prefixText = prefixText ~= "" and prefixText or ply\SteamName!
+    
     col2 = Color net.ReadUInt 8, net.ReadUInt 8, net.ReadUInt 8
 
     text = net.ReadString!

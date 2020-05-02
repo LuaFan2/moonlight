@@ -7,6 +7,10 @@ moon.AddMoney = (player, amount) ->
     
     moon.StoreMoney(player, total)
 
+moon.TransferMoney = (initiator, target, money) ->
+    moon.AddMoney(initiator, -money)
+    moon.AddMoney(targer, money)
+
 moon.PayDay = (player) ->
     amount = moon.RetrieveSalary player
     
