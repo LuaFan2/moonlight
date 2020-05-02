@@ -10,6 +10,8 @@ moon.net =
         net.Start networkString
     SendToServer: ->
         net.SendToServer!
+    Send: (arg) ->
+        net.Send arg
     WriteSteamId: do 
         steamIdInformationStart = #'STEAM_' + 1
         (steamId) ->
